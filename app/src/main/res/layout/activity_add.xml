@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_empty"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.warg.planer.Add">
+
+    <TextView
+        android:text="@string/AddBirthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textView"
+        android:textStyle="normal|bold|italic"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:hint="ФИО"
+        android:ems="10"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="13dp"
+        android:id="@+id/addName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:hint="Кем Вам приходится?"
+        android:ems="10"
+        android:layout_below="@+id/addName"
+        android:layout_alignRight="@+id/addName"
+        android:layout_alignEnd="@+id/addName"
+        android:layout_marginTop="21dp"
+        android:id="@+id/addDescription"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="Дата рождения"
+        android:ems="10"
+        android:layout_below="@+id/addDescription"
+        android:layout_alignRight="@+id/addDescription"
+        android:layout_alignEnd="@+id/addDescription"
+        android:layout_marginTop="24dp"
+        android:id="@+id/addData"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:text="@string/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnAddBirthday"
+        android:onClick="AddBirthday"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAddBirthday"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="85dp"
+        android:id="@+id/textView2"/>
+
+</RelativeLayout>
