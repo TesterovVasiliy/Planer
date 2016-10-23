@@ -126,12 +126,12 @@ public class MainActivity extends ListActivity implements NavigationView.OnNavig
     private void DbList() {
         SimpleDateFormat dateFormatD = new SimpleDateFormat("dd");
         SimpleDateFormat dateFormatM = new SimpleDateFormat("MM");
-        int day = (Integer.parseInt( dateFormatD.format(new Date()))-1);
-        int months = (Integer.parseInt(dateFormatM.format(new Date()))-1);
-        Log.d(LOG_TAG, String.valueOf(day));
-        Log.d(LOG_TAG,String.valueOf(months));
+        int day = (Integer.parseInt(dateFormatD.format(new Date())) - 1);
+        int months = (Integer.parseInt(dateFormatM.format(new Date())) - 1);
+        /*Log.d(LOG_TAG, String.valueOf(day));
+        Log.d(LOG_TAG, String.valueOf(months));*/
 
-        Cursor mCursor = mDatabase.query(PlanerTable.NAME, null, null, null, null, null, "strftime('%m %d',data,'-"+months+" months', '-"+day+" day')");
+        Cursor mCursor = mDatabase.query(PlanerTable.NAME, null, null, null, null, null, "strftime('%m %d',data,'-" + months + " months', '-" + day + " day')");
         SimpleCursorAdapter mSimpleCursorAdapter = new SimpleCursorAdapter(this,
                 R.layout.item,
                 mCursor,
