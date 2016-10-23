@@ -29,7 +29,7 @@
         android:hint="ФИО"
         android:ems="10"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="13sp"
         android:id="@+id/addName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -45,7 +45,7 @@
         android:layout_below="@+id/addName"
         android:layout_alignRight="@+id/addName"
         android:layout_alignEnd="@+id/addName"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="21sp"
         android:id="@+id/addDescription"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
@@ -54,12 +54,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:hint="Дата рождения"
+        android:hint="Дата рождения (гггг-мм-дд)"
         android:ems="10"
         android:layout_below="@+id/addDescription"
         android:layout_alignRight="@+id/addDescription"
         android:layout_alignEnd="@+id/addDescription"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="24sp"
         android:id="@+id/addData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
@@ -73,13 +73,13 @@
         android:id="@+id/btnAddBirthday"
         android:onClick="AddBirthday"/>
 
-    <TextView
+    <!--<TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnAddBirthday"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="85dp"
-        android:id="@+id/textView2"/>
+        android:id="@+id/textView2"/>-->
 
 </RelativeLayout>

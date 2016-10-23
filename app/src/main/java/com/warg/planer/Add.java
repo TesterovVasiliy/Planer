@@ -45,11 +45,11 @@ public class Add extends AppCompatActivity {
         if (mName.equals("") | mDescription.equals("") | mData.equals("")) {
             Toast.makeText(this, "Заполните все поля для сохранения", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, mName + " - " + mDescription + " - " + mData, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, mName + " - " + mDescription + " - " + mData, Toast.LENGTH_SHORT).show();
             getContentValues();
-            getDB();
-            //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            //startActivity(intent);
+            //getDB();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -60,13 +60,13 @@ public class Add extends AppCompatActivity {
         values.put(Cols.DATA, mData);
         values.put(Cols.CHECKIN, true);
         mDatabase.insert(PlanerTable.NAME, null, values);
-        Toast.makeText(this, "Все ок", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Все ок", Toast.LENGTH_SHORT).show();
     }
 
-    private void getDB(){
+    /*private void getDB(){
         Cursor cursor = mDatabase.query(PlanerTable.NAME,null,null,null,null,null,null);
         cursor.moveToLast();
-        TextView textView = (TextView) findViewById(R.id.textView2);
-        textView.setText(cursor.getString(0)+" - "+cursor.getString(1).toString()+" - "+cursor.getString(2).toString()+" - "+cursor.getString(3).toString()+" - "+cursor.getString(4));
-    }
+        //TextView textView = (TextView) findViewById(R.id.textView2);
+        //textView.setText(cursor.getString(0)+" - "+cursor.getString(1).toString()+" - "+cursor.getString(2).toString()+" - "+cursor.getString(3).toString()+" - "+cursor.getString(4));
+    }*/
 }

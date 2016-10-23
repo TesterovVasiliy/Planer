@@ -58,23 +58,8 @@ public class MainActivity extends ListActivity implements NavigationView.OnNavig
         /**
          *
          */
-
         mDatabase = new DBHelper(getApplicationContext()).getWritableDatabase();
-        Cursor mCursor = mDatabase.query(PlanerTable.NAME, null, null, null, null, null, null);
-        SimpleCursorAdapter mSimpleCursorAdapter = new SimpleCursorAdapter(this,
-                R.layout.item,
-                mCursor,
-                new String[]{"name", "description", "data"},
-                new int[]{R.id.tvName, R.id.tvDescription, R.id.tvData},
-                Adapter.NO_SELECTION);
-        ListView mListView = (ListView) findViewById(android.R.id.list);
-        mListView.setAdapter(mSimpleCursorAdapter);
-        mCursor.moveToFirst();
-
-        /*String [] test = new String[]{"Поздравить", "Купить", "Позвонить"};
-        ListView listTask = getListView();
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,test);
-        listTask.setAdapter(listAdapter);*/
+        DbList();
     }
 
     @Override
@@ -130,5 +115,19 @@ public class MainActivity extends ListActivity implements NavigationView.OnNavig
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void DbList() {
+        Cursor mCursor = mDatabase.query(PlanerTable.NAME, null, null, null, null, null, "strftime('%m %d',data)");
+        SimpleCursorAdapter mSimpleCursorAdapter = new SimpleCursorAdapter(this,
+                R.layout.item,
+                mCursor,
+                new String[]{"name", "description", "data"},
+                new int[]{R.id.tvName, R.id.tvDescription, R.id.tvData},
+                Adapter.NO_SELECTION);
+        ListView mListView = (ListView) findViewById(android.R.id.list);
+        mListView.setAdapter(mSimpleCursorAdapter);
+        mCursor.moveToFirst();
+        //mCursor.close();
     }
 }
