@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,14 +19,19 @@ import android.view.MenuItem;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.warg.planer.database.DBHelper;
 import com.warg.planer.database.DBSchema;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.warg.planer.database.DBSchema.*;
 
 public class MainActivity extends ListActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String LOG_TAG = "My TAG";
     private SQLiteDatabase mDatabase;
 
     @Override
@@ -118,7 +124,14 @@ public class MainActivity extends ListActivity implements NavigationView.OnNavig
     }
 
     private void DbList() {
-        Cursor mCursor = mDatabase.query(PlanerTable.NAME, null, null, null, null, null, "strftime('%m %d',data)");
+        SimpleDateFormat dateFormatD = new SimpleDateFormat("dd");
+        SimpleDateFormat dateFormatM = new SimpleDateFormat("MM");
+        int day = (Integer.parseInt( dateFormatD.format(new Date()))-1);
+        int months = (Integer.parseInt(dateFormatM.format(new Date()))-1);
+        Log.d(LOG_TAG, String.valueOf(day));
+        Log.d(LOG_TAG,String.valueOf(months));
+
+        Cursor mCursor = mDatabase.query(PlanerTable.NAME, null, null, null, null, null, "strftime('%m %d',data,'-"+months+" months', '-"+day+" day')");
         SimpleCursorAdapter mSimpleCursorAdapter = new SimpleCursorAdapter(this,
                 R.layout.item,
                 mCursor,
