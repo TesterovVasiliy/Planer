@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textCapWords"
-        android:hint="ФИО"
+        android:hint="@string/FIO"
         android:ems="10"
         android:layout_below="@+id/textView"
         android:layout_marginTop="13sp"
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textCapWords"
-        android:hint="Кем Вам приходится?"
+        android:hint="@string/Who_it"
         android:ems="10"
         android:layout_below="@+id/addName"
         android:layout_alignRight="@+id/addName"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:hint="Дата рождения (гггг-мм-дд)"
+        android:hint="@string/Date_Birth"
         android:ems="10"
         android:layout_below="@+id/addDescription"
         android:layout_alignRight="@+id/addDescription"
@@ -72,14 +72,5 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/btnAddBirthday"
         android:onClick="AddBirthday"/>
-
-    <!--<TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnAddBirthday"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp"
-        android:id="@+id/textView2"/>-->
 
 </RelativeLayout>
